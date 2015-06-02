@@ -162,7 +162,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                             'assets/admin/pages/scripts/index3.js',
                             'assets/admin/pages/scripts/tasks.js',
 
-                             'js/controllers/DashboardController.js'
+                            'js/controllers/DashboardController.js'
                         ] 
                     });
                 }]
@@ -520,6 +520,59 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                             'js/scripts/table-ajax.js',
 
                             'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+
+        // Shared Worksheet
+        .state("shared_worksheet", {
+            url: "/shared_worksheet.html",
+            templateUrl: "views/shared_worksheet.html",
+            data: {pageTitle: 'Shared Worksheet', pageSubTitle: 'Get an overview!'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
+                        files: [
+                            'assets/global/plugins/select2/select2.css',                             
+                            'assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css',
+                            'assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css',
+
+                            'assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
+                            'assets/global/plugins/select2/select2.min.js',
+                            'assets/global/plugins/datatables/all.min.js',
+
+                            'assets/global/scripts/datatable.js',
+                            'js/scripts/table-ajax.js',
+
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+
+        // Artist
+        .state("artist", {
+            url: "/artist.html",
+            templateUrl: "views/artist.html",
+            data: {pageTitle: 'Artist Name', pageSubTitle: 'artist view'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
+                        files: [
+                            'assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css',                             
+                            'assets/admin/pages/css/profile.css',
+                            'assets/admin/pages/css/tasks.css'
+
+
                         ]
                     });
                 }]
